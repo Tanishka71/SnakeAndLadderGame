@@ -44,7 +44,7 @@ public class SnakeAndLadder {
 	 * @return:none
 	 * @desc:initializes randomly the board
 	 */	
-    private void initializeBoard() {
+    private  void initializeBoard() {
         for (int i = 0; i < NUM_SNAKES; i++) {
             snakes[i] = getRandomPosition();
         }
@@ -57,13 +57,24 @@ public class SnakeAndLadder {
     
 	/*
 	 * @params:none
+	 * @return:integer
+	 * @desc:gives a random dice number from 1 to 6
+	 */	
+    private static int rollDice() {
+        Random random = new Random();
+        return random.nextInt(6) + 1;
+    }
+    
+	/*
+	 * @params:none
 	 * @return:none
 	 * @desc:prints the initial position
 	 */	 
     public static void main(String[] args) {
         SnakeAndLadder game = new SnakeAndLadder();
         System.out.println("Welcome to SNAKE AND LADDER!");
-        System.out.println("Initial position of the player:"+INITIAL_POSITION);
+        int diceNumber=rollDice();
+        System.out.println("Number on the dice:"+diceNumber);
    
         game.initializeBoard();
     }
